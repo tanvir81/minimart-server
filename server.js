@@ -12,6 +12,11 @@ app.use(express.json());
 
 app.use("/images", express.static(path.join(__dirname, "images")));
 
+// ✅ Root route (health check)
+app.get("/", (req, res) => {
+  res.json({ ok: true, message: "Backend running 🚀" });
+});
+
 // Seed products (in-memory)
 let products = [
   {
