@@ -11,10 +11,14 @@
     "type": "git",
     "url": "git+https://github.com/tanvir81/minimart-server.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "express",
+    "api",
+    "backend",
+    "shopify"
+  ],
+  "author": "Tanvir Hussain Khan",
   "license": "ISC",
-  "type": "commonjs",
   "bugs": {
     "url": "https://github.com/tanvir81/minimart-server/issues"
   },

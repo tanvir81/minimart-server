@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
+const path = require("path");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -9,14 +10,58 @@ const CORS_ORIGIN = process.env.CORS_ORIGIN || "http://localhost:3000";
 app.use(cors({ origin: CORS_ORIGIN }));
 app.use(express.json());
 
+app.use("/images", express.static(path.join(__dirname, "images")));
+
 // Seed products (in-memory)
 let products = [
-  { id: "1", name: "Perfume", price: 50, stock: 10, category: "grocery" },
-  { id: "2", name: "Shoes", price: 80, stock: 5, category: "clothing" },
-  { id: "3", name: "Watch", price: 120, stock: 3, category: "electronics" },
-  { id: "4", name: "Laptop", price: 900, stock: 7, category: "electronics" },
-  { id: "5", name: "Backpack", price: 40, stock: 15, category: "accessories" },
-  { id: "6", name: "Headphones", price: 70, stock: 8, category: "electronics" },
+  {
+    id: "1",
+    name: "Perfume",
+    price: 50,
+    stock: 10,
+    category: "grocery",
+    image: "/images/perfume.jpg",
+  },
+  {
+    id: "2",
+    name: "Shoes",
+    price: 80,
+    stock: 5,
+    category: "clothing",
+    image: "/images/shoes.jpg",
+  },
+  {
+    id: "3",
+    name: "Watch",
+    price: 120,
+    stock: 3,
+    category: "electronics",
+    image: "/images/watch.jpg",
+  },
+  {
+    id: "4",
+    name: "Laptop",
+    price: 900,
+    stock: 7,
+    category: "electronics",
+    image: "/images/laptop.jpg",
+  },
+  {
+    id: "5",
+    name: "Backpack",
+    price: 40,
+    stock: 15,
+    category: "accessories",
+    image: "/images/backpack.jpg",
+  },
+  {
+    id: "6",
+    name: "Headphones",
+    price: 70,
+    stock: 8,
+    category: "electronics",
+    image: "/images/headphones.jpg",
+  },
 ];
 
 // Routes
