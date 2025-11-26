@@ -119,7 +119,4 @@ app.delete("/api/products/:id", (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
-  if (!process.env.PORT || !process.env.CORS_ORIGIN) {
-    console.warn("Warning: Missing env variables. Check your .env.");
-  }
 });
