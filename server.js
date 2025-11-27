@@ -5,14 +5,20 @@ const path = require("path");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-const CORS_ORIGIN = process.env.CORS_ORIGIN || "http://localhost:3000";
 
-app.use(cors({ origin: CORS_ORIGIN }));
+// ✅ Allow both localhost and Vercel domain
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://minimart-alpha.vercel.app",
+];
+
+app.use(cors({ origin: allowedOrigins }));
 app.use(express.json());
 
+// Serve static images
 app.use("/images", express.static(path.join(__dirname, "images")));
 
-// ✅ Root route (health check)
+// Health check
 app.get("/", (req, res) => {
   res.json({ ok: true, message: "Backend running 🚀" });
 });
