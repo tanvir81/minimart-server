@@ -6,7 +6,7 @@ const path = require("path");
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// ✅ Allow both localhost and Vercel domain
+// Allow both localhost and Vercel domain
 const allowedOrigins = [
   "http://localhost:3000",
   "https://minimart-alpha.vercel.app",
